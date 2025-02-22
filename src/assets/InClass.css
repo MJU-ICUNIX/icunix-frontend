@@ -1,0 +1,150 @@
+.ClassListMain {
+  background: #26232d;
+  width: 1100px;
+  padding: 25px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.classCategory {
+  display: flex;
+}
+
+.classBackground {
+  /* background: rgb(32, 32, 32); */
+  padding: 15px;
+  border-radius: 0 0 10px 10px;
+}
+/*
+  .ClassListMain > div:not(:last-child) {
+    margin-bottom: 10px;
+  } */
+
+.categoryItems {
+  display: flex;
+}
+
+.categoryRouter {
+  color: #f2c53d;
+  list-style: none;
+  border-color: #f2c53d;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  padding: 0.4rem 0.7rem;
+  text-decoration: none;
+  user-select: none;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.categoryRouter.active {
+  color: #f2c53d;
+  font-weight: 600;
+  border-width: 1px 1px 0 1px;
+}
+
+.categoryRouter:hover {
+  background: transparent;
+}
+
+.lowerClass {
+  /* background: rgb(32, 32, 32); */
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.dummy {
+  flex: 1;
+  border-color: #f2c53d;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+}
+/*
+  .postTable {
+    margin-top: 10px;
+  } */
+
+.postHeader {
+  font-weight: bold;
+  /* margin-top: 10px; */
+}
+
+.table-inner {
+  align-items: center;
+  padding: 0.4rem 0.6rem;
+  border-bottom: 2px solid;
+  border-color: #77729f;
+  height: 30px;
+  color: #d3d3d3;
+  background: transparent;
+  text-align: center;
+}
+
+.table-inner {
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.table-top {
+  align-items: center;
+  display: flex;
+  flex: 1;
+}
+
+.table-id {
+  width: 100px;
+  margin-right: 10px;
+}
+
+.table-title {
+  display: flex;
+  flex: 1;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.table-bottom {
+  display: flex;
+  align-items: center;
+}
+
+.table-auto {
+  display: flex;
+  flex: 1;
+  width: 100px;
+  white-space: nowrap;
+}
+
+.table-time {
+  flex: 1;
+  width: 100px;
+  margin-left: 20px;
+}
+
+.class-write {
+  padding: 15px 15px 0 15px;
+  display: flex;
+  justify-content: flex-end;
+  /* border-bottom: 1px solid;
+  border-color: #77729f; */
+}
+
+.class-write-bnt {
+  background: transparent;
+  color: #d3d3d3;
+  height: 20px;
+  text-decoration: none;
+  border: 1px solid #77729f;
+  padding: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.class-write-bnt:hover {
+  background-color: transparent;
+}
