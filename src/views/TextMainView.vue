@@ -6,24 +6,27 @@
         <LogoHeader />
         <!-- <div class="article-wrapper">{{ categoryId }}</div> -->
         <div class="article-bg">
-          <div class="article-main-bg">
-            <div class="article-title">{{ currentWrite.title }}</div>
-            <div class="article-info">
-              <div class="article-member-info">
-                {{ currentWrite.owner }}
+          <div class="article-inner-bg">
+            <InclassHeader :item="classStore.selectedClass!" />
+            <div class="article-main-bg">
+              <div class="article-title">{{ currentWrite.title }}</div>
+              <div class="article-info">
+                <div class="article-member-info">
+                  {{ currentWrite.owner }}
+                </div>
+                <div class="article-article-info">
+                  <span class="article-create-at"> 작성일: {{ currentWrite.create_at }}</span>
+                  <span class="article-update-at"> 수정일: {{ currentWrite.updated_at }}</span>
+                </div>
               </div>
-              <div class="article-article-info">
-                <span class="article-create-at"> 작성일: {{ currentWrite.create_at }}</span>
-                <span class="article-update-at"> 수정일: {{ currentWrite.updated_at }}</span>
-              </div>
-            </div>
-            <div class="article-body">{{ currentWrite.writes }}</div>
-            <div class="article-share"><button class="article-share-btn">공유</button></div>
-            <div class="article-comments">
-              <div class="article-comments-title">댓글</div>
-              <div class="article-comments-list">
-                <div class="article-comments-item" v-for="cm in currentComments">
-                  <CommentInner :cmt="cm" />
+              <div class="article-body">{{ currentWrite.writes }}</div>
+              <div class="article-share"><button class="article-share-btn">공유</button></div>
+              <div class="article-comments">
+                <div class="article-comments-title">댓글</div>
+                <div class="article-comments-list">
+                  <div class="article-comments-item" v-for="cm in currentComments">
+                    <CommentInner :cmt="cm" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -46,6 +49,7 @@ import { useClassStore } from '@/stores/communityStore'
 import { onMounted, computed } from 'vue'
 import CommentInner from '@/components/Classes/CommentInner.vue'
 import LogoHeader from '@/components/LogoHeader.vue'
+import InclassHeader from '@/components/InclassHeader.vue'
 
 const classStore = useClassStore()
 
@@ -57,7 +61,7 @@ const currentWrite = computed(() => {
 })
 
 const currentComments = computed(() => classStore.comments)
-
+console.dir(classStore, { depth: null })
 console.log(':currentComments', currentComments)
 
 onMounted(async () => {
@@ -81,10 +85,13 @@ onMounted(async () => {
   border-radius: 10px 10px 0 0;
 }
 
-.article-main-bg {
+.article-inner-bg {
   border: 2px solid;
   border-color: #77729f;
   border-radius: 10px;
+}
+
+.article-main-bg {
   background: rgb(32, 32, 32);
   padding: 15px;
   border-radius: 10px;

@@ -1,5 +1,7 @@
 <template>
-  <button class="profile"></button>
+  <div class="profile">
+    <router-link :to="{ name: 'mypage' }"> 이미지추가 </router-link>
+  </div>
 </template>
 
 <script>
@@ -28,5 +30,9 @@ export default {
   height: 50px;
   background: #77729f;
   border-radius: 50%;
+}
+
+.profile:hover {
+  cursor: pointer;
 }
 </style>

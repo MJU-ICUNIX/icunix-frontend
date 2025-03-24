@@ -14,6 +14,16 @@ const mainRouter = createRouter({
       component: () => import('../views/CommunityVIew.vue'),
     },
     {
+      path: '/mypage',
+      name: 'mypage',
+      component: () => import('../views/MyPage.vue'),
+    },
+    {
+      path: '/creatclass',
+      name: 'creatclass',
+      component: () => import('../views/CreateClass.vue'),
+    },
+    {
       path: '/contest',
       name: 'contest',
       component: () => import('../views/ContestView.vue'),
