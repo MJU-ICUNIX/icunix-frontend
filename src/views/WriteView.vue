@@ -1,130 +1,146 @@
 <template>
-  <div v-if="editor" class="container">
-    <div class="control-group">
-      <div class="button-group">
-        <button
-          @click="editor.chain().focus().toggleBold().run()"
-          :disabled="!editor.can().chain().focus().toggleBold().run()"
-          :class="{ 'is-active': editor.isActive('bold') }"
-        >
-          Bold
-        </button>
-        <button
-          @click="editor.chain().focus().toggleItalic().run()"
-          :disabled="!editor.can().chain().focus().toggleItalic().run()"
-          :class="{ 'is-active': editor.isActive('italic') }"
-        >
-          Italic
-        </button>
-        <button
-          @click="editor.chain().focus().toggleStrike().run()"
-          :disabled="!editor.can().chain().focus().toggleStrike().run()"
-          :class="{ 'is-active': editor.isActive('strike') }"
-        >
-          Strike
-        </button>
-        <button
-          @click="editor.chain().focus().toggleCode().run()"
-          :disabled="!editor.can().chain().focus().toggleCode().run()"
-          :class="{ 'is-active': editor.isActive('code') }"
-        >
-          Code
-        </button>
-        <button @click="editor.chain().focus().unsetAllMarks().run()">Clear marks</button>
-        <button @click="editor.chain().focus().clearNodes().run()">Clear nodes</button>
-        <button
-          @click="editor.chain().focus().setParagraph().run()"
-          :class="{ 'is-active': editor.isActive('paragraph') }"
-        >
-          Paragraph
-        </button>
-        <button
-          @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
-          :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
-        >
-          H1
-        </button>
-        <button
-          @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
-          :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }"
-        >
-          H2
-        </button>
-        <button
-          @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
-          :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }"
-        >
-          H3
-        </button>
-        <button
-          @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
-          :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }"
-        >
-          H4
-        </button>
-        <button
-          @click="editor.chain().focus().toggleHeading({ level: 5 }).run()"
-          :class="{ 'is-active': editor.isActive('heading', { level: 5 }) }"
-        >
-          H5
-        </button>
-        <button
-          @click="editor.chain().focus().toggleHeading({ level: 6 }).run()"
-          :class="{ 'is-active': editor.isActive('heading', { level: 6 }) }"
-        >
-          H6
-        </button>
-        <button
-          @click="editor.chain().focus().toggleBulletList().run()"
-          :class="{ 'is-active': editor.isActive('bulletList') }"
-        >
-          Bullet list
-        </button>
-        <button
-          @click="editor.chain().focus().toggleOrderedList().run()"
-          :class="{ 'is-active': editor.isActive('orderedList') }"
-        >
-          Ordered list
-        </button>
-        <button
-          @click="editor.chain().focus().toggleCodeBlock().run()"
-          :class="{ 'is-active': editor.isActive('codeBlock') }"
-        >
-          Code block
-        </button>
-        <button
-          @click="editor.chain().focus().toggleBlockquote().run()"
-          :class="{ 'is-active': editor.isActive('blockquote') }"
-        >
-          Blockquote
-        </button>
-        <button @click="editor.chain().focus().setHorizontalRule().run()">Horizontal rule</button>
-        <button @click="editor.chain().focus().setHardBreak().run()">Hard break</button>
-        <button
-          @click="editor.chain().focus().undo().run()"
-          :disabled="!editor.can().chain().focus().undo().run()"
-        >
-          Undo
-        </button>
-        <button
-          @click="editor.chain().focus().redo().run()"
-          :disabled="!editor.can().chain().focus().redo().run()"
-        >
-          Redo
-        </button>
-        <button
-          @click="editor.chain().focus().setColor('#958DF1').run()"
-          :class="{ 'is-active': editor.isActive('textStyle', { color: '#958DF1' }) }"
-        >
-          Purple
-        </button>
+  <profile />
+  <div class="body">
+    <div class="article-main">
+      <div class="article-view">
+        <LogoHeader />
+        <div class="write-container">
+          <div class="write-wrapper">
+            <div v-if="editor" class="container">
+              <div class="control-group">
+                <div class="button-group">
+                  <button
+                    @click="editor.chain().focus().toggleBold().run()"
+                    :disabled="!editor.can().chain().focus().toggleBold().run()"
+                    :class="{ 'is-active': editor.isActive('bold') }"
+                  >
+                    Bold
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleItalic().run()"
+                    :disabled="!editor.can().chain().focus().toggleItalic().run()"
+                    :class="{ 'is-active': editor.isActive('italic') }"
+                  >
+                    Italic
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleStrike().run()"
+                    :disabled="!editor.can().chain().focus().toggleStrike().run()"
+                    :class="{ 'is-active': editor.isActive('strike') }"
+                  >
+                    Strike
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleCode().run()"
+                    :disabled="!editor.can().chain().focus().toggleCode().run()"
+                    :class="{ 'is-active': editor.isActive('code') }"
+                  >
+                    Code
+                  </button>
+                  <button @click="editor.chain().focus().unsetAllMarks().run()">Clear marks</button>
+                  <button @click="editor.chain().focus().clearNodes().run()">Clear nodes</button>
+                  <button
+                    @click="editor.chain().focus().setParagraph().run()"
+                    :class="{ 'is-active': editor.isActive('paragraph') }"
+                  >
+                    Paragraph
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
+                    :class="{ 'is-active': editor.isActive('heading', { level: 1 }) }"
+                  >
+                    H1
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                    :class="{ 'is-active': editor.isActive('heading', { level: 2 }) }"
+                  >
+                    H2
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
+                    :class="{ 'is-active': editor.isActive('heading', { level: 3 }) }"
+                  >
+                    H3
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
+                    :class="{ 'is-active': editor.isActive('heading', { level: 4 }) }"
+                  >
+                    H4
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleHeading({ level: 5 }).run()"
+                    :class="{ 'is-active': editor.isActive('heading', { level: 5 }) }"
+                  >
+                    H5
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleHeading({ level: 6 }).run()"
+                    :class="{ 'is-active': editor.isActive('heading', { level: 6 }) }"
+                  >
+                    H6
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleBulletList().run()"
+                    :class="{ 'is-active': editor.isActive('bulletList') }"
+                  >
+                    Bullet list
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleOrderedList().run()"
+                    :class="{ 'is-active': editor.isActive('orderedList') }"
+                  >
+                    Ordered list
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleCodeBlock().run()"
+                    :class="{ 'is-active': editor.isActive('codeBlock') }"
+                  >
+                    Code block
+                  </button>
+                  <button
+                    @click="editor.chain().focus().toggleBlockquote().run()"
+                    :class="{ 'is-active': editor.isActive('blockquote') }"
+                  >
+                    Blockquote
+                  </button>
+                  <button @click="editor.chain().focus().setHorizontalRule().run()">
+                    Horizontal rule
+                  </button>
+                  <button @click="editor.chain().focus().setHardBreak().run()">Hard break</button>
+                  <button
+                    @click="editor.chain().focus().undo().run()"
+                    :disabled="!editor.can().chain().focus().undo().run()"
+                  >
+                    Undo
+                  </button>
+                  <button
+                    @click="editor.chain().focus().redo().run()"
+                    :disabled="!editor.can().chain().focus().redo().run()"
+                  >
+                    Redo
+                  </button>
+                  <button
+                    @click="editor.chain().focus().setColor('#958DF1').run()"
+                    :class="{ 'is-active': editor.isActive('textStyle', { color: '#958DF1' }) }"
+                  >
+                    Purple
+                  </button>
+                </div>
+              </div>
+              <editor-content :editor="editor" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <editor-content :editor="editor" />
   </div>
 </template>
 
 <script>
+import LogoHeader from '@/components/LogoHeader.vue'
+import Profile from '@/components/profile.vue'
 import { Color } from '@tiptap/extension-color'
 import ListItem from '@tiptap/extension-list-item'
 import TextStyle from '@tiptap/extension-text-style'
@@ -189,6 +205,23 @@ export default {
 </script>
 
 <style lang="scss">
+.write-container {
+  background: #26232d;
+  width: 1100px;
+  padding: 25px 25px 0 25px;
+  border-radius: 10px 10px 0 0;
+}
+
+.write-container {
+  border: 2px solid;
+  border-color: #77729f;
+  border-radius: 10px;
+  background: rgb(32, 32, 32);
+  padding: 15px;
+  border-radius: 10px;
+  color: #d3d3d3;
+}
+
 /* Basic editor styles */
 .tiptap {
   :first-child {
